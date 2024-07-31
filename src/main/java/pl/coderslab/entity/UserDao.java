@@ -112,15 +112,20 @@ public class UserDao {
 
     public static void delete(int userId) throws SQLException {
         try (Connection conn = DbUtil.connect()) {
-            PreparedStatement stmt = conn.prepareStatement(DELETE_USER_QUERY);
-            stmt.setInt(1, userId);
-            if (stmt.executeUpdate() == 1){
-                log.info("User record successfully deleted.");
-            } else {
-                throw new NonExistentRecordException("Specified record does not exist.");
+            conn.setAutoCommit(false);
+            try {
+                PreparedStatement stmt = conn.prepareStatement(DELETE_USER_QUERY);
+                stmt.setInt(1, userId);
+                if (stmt.executeUpdate() == 1) {
+                    conn.commit();
+                    log.info("User record successfully deleted.");
+                } else {
+                    throw new NonExistentRecordException("Specified record does not exist.");
+                }
+            } catch (NonExistentRecordException e) {
+                conn.rollback();
+                log.warn("Unable to delete record. Nothing has been deleted: {}", e.getMessage());
             }
-        } catch (NonExistentRecordException e) {
-            log.warn("Unable to delete record. Nothing has been deleted: {}", e.getMessage());
         }
     }
 

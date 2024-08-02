@@ -8,6 +8,8 @@
     version="6.0"
     metadata-complete="false">
 
-  <display-name>UserCRUD</display-name>
+  <welcome-file-list>
+    <welcome-file>/WEB-INF/users/list.jsp</welcome-file>
+  </welcome-file-list>
 
 </web-app>

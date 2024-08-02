@@ -13,7 +13,7 @@ import pl.coderslab.entity.UserDao;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet (name = "UserList", urlPatterns = "/user/list")
+@WebServlet (name = "UserList", urlPatterns = {"", "/user/list"})
 public class UserList extends HttpServlet {
 
     private static final Logger log = LoggerFactory.getLogger(UserList.class);
@@ -21,9 +21,17 @@ public class UserList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        try {
+            User[] users = UserDao.findAll();
+            req.setAttribute("users", users);
+
+            getServletContext().getRequestDispatcher("/WEB-INF/users/list.jsp")
+                    .forward(req, resp);
+        } catch (SQLException e) {
+            log.error("Database error", e);
+            resp.sendError(500, "Database error");
+        }
 
 
-        getServletContext().getRequestDispatcher("/WEB-INF/users/list.jsp")
-                .forward(req, resp);
     }
 }

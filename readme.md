@@ -5,9 +5,7 @@ The purpose of this web application is to enable user management. It implements 
 
 
 ---
-This application uses SB Admin 2 from Start Bootstrap LLC
-
----
+This application contains source code from SB Admin 2 from Start Bootstrap LLC
 
 
 The MIT License (MIT)

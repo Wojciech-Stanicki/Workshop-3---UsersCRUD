@@ -49,17 +49,17 @@
                                     <tbody>
                                     <c:forEach items="${requestScope.users}" var="user">
                                         <tr>
-                                            <td>${user.id}</td>
-                                            <td>${user.userName}</td>
-                                            <td>${user.email}</td>
-                                            <td>
+                                            <td class="align-middle">${user.id}</td>
+                                            <td class="align-middle">${user.userName}</td>
+                                            <td class="align-middle">${user.email}</td>
+                                            <td class="align-middle">
                                                 <a href="${pageContext.request.contextPath}/user/delete" class="btn btn-danger btn-icon-split btn-sm">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-trash"></i>
                                                     </span>
                                                     <span class="text">Delete</span>
                                                 </a>
-                                                <a href="${pageContext.request.contextPath}/user/edit" class="btn btn-warning btn-icon-split btn-sm">
+                                                <a href="${pageContext.request.contextPath}/user/edit?id=${user.id}" class="btn btn-warning btn-icon-split btn-sm">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-exclamation-triangle"></i>
                                                     </span>

@@ -59,7 +59,7 @@
                                                     </span>
                                                     <span class="text">Delete</span>
                                                 </a>
-                                                <a href="${pageContext.request.contextPath}/user/edit" class="btn btn-warning btn-icon-split btn-sm">
+                                                <a href="${pageContext.request.contextPath}/user/edit?id=${user.id}" class="btn btn-warning btn-icon-split btn-sm">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-exclamation-triangle"></i>
                                                     </span>

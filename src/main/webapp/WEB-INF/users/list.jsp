@@ -53,7 +53,7 @@
                                             <td class="align-middle">${user.userName}</td>
                                             <td class="align-middle">${user.email}</td>
                                             <td class="align-middle">
-                                                <a href="${pageContext.request.contextPath}/user/delete" class="btn btn-danger btn-icon-split btn-sm">
+                                                <a href="${pageContext.request.contextPath}/user/delete?id=${user.id}" class="btn btn-danger btn-icon-split btn-sm">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-trash"></i>
                                                     </span>
@@ -65,7 +65,7 @@
                                                     </span>
                                                     <span class="text">Edit</span>
                                                 </a>
-                                                <a href="${pageContext.request.contextPath}/user/show" class="btn btn-info btn-icon-split btn-sm">
+                                                <a href="${pageContext.request.contextPath}/user/show?id=${user.id}" class="btn btn-info btn-icon-split btn-sm">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-info-circle"></i>
                                                     </span>

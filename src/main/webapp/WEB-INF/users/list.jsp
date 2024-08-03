@@ -49,10 +49,10 @@
                                     <tbody>
                                     <c:forEach items="${requestScope.users}" var="user">
                                         <tr>
-                                            <td>${user.id}</td>
-                                            <td>${user.userName}</td>
-                                            <td>${user.email}</td>
-                                            <td>
+                                            <td class="align-middle">${user.id}</td>
+                                            <td class="align-middle">${user.userName}</td>
+                                            <td class="align-middle">${user.email}</td>
+                                            <td class="align-middle">
                                                 <a href="${pageContext.request.contextPath}/user/delete" class="btn btn-danger btn-icon-split btn-sm">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-trash"></i>
